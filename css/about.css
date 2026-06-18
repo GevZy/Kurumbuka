@@ -1,0 +1,151 @@
+/* ============================================
+   ABOUT PAGE CSS
+   ============================================ */
+
+.about-why__header { margin-bottom: 60px; }
+.about-why__header h2 { margin-top: 12px; }
+
+.about-why__reasons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.reason {
+  display: flex;
+  gap: 24px;
+  padding: 36px 40px 36px 0;
+  border-bottom: 1px solid var(--grey-light);
+}
+.reason:nth-child(even) { padding-left: 40px; border-left: 1px solid var(--grey-light); }
+.reason:nth-last-child(-n+2) { border-bottom: none; }
+
+.reason__num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--grey-light);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 64px;
+}
+
+.reason h4 { color: var(--navy); margin-bottom: 10px; font-size: 1.05rem; }
+.reason p  { font-size: .92rem; color: var(--grey-mid); }
+
+/* Impact Model */
+.impact-model {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.impact-model__text h2 { margin: 12px 0 20px; }
+.impact-model__img img { width: 100%; border-radius: var(--radius-lg); }
+
+/* Countries */
+.countries-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.countries-map { width: 100%; border-radius: var(--radius-lg); }
+.countries-text p { color: rgba(255,255,255,0.75); font-size: .95rem; line-height: 2; }
+
+/* Testimonial Feature */
+.testimonial-feature {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+.testimonial-feature__img img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+.testimonial-feature__text h2 { margin: 12px 0 0; }
+
+/* About Cards */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.about-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.about-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.about-card__body { padding: 32px; }
+.about-card__body h3 { margin-bottom: 12px; }
+
+/* Name Section */
+.name-section h2 { margin: 12px 0 24px; }
+.name-word { background: var(--off-white); border-radius: var(--radius-lg); padding: 32px; }
+.name-phonetic {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .14em;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Scripture */
+.scripture { max-width: 600px; margin: 0 auto; }
+.scripture__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.scripture__ref {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* Involve Grid */
+.involve-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.involve-item {
+  background: var(--off-white);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+}
+.involve-item__icon { font-size: 2rem; margin-bottom: 16px; }
+.involve-item h4 { margin-bottom: 10px; }
+.involve-item p { font-size: .88rem; color: var(--grey-mid); margin: 0 auto 16px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-why__reasons { grid-template-columns: 1fr; }
+  .reason { padding: 28px 0; }
+  .reason:nth-child(even) { padding-left: 0; border-left: none; }
+  .reason:nth-last-child(-n+2) { border-bottom: 1px solid var(--grey-light); }
+  .reason:last-child { border-bottom: none; }
+  .impact-model { grid-template-columns: 1fr; gap: 32px; }
+  .countries-list { grid-template-columns: 1fr; }
+  .testimonial-feature { grid-template-columns: 1fr; }
+  .about-cards { grid-template-columns: 1fr; }
+  .involve-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .involve-grid { grid-template-columns: 1fr; }
+}
