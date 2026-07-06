@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trek — Kurumbuka Leadership Solutions</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <style>
+    /* ── Activity carousel ── */
+    .activity-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+    .activity-card { border-radius:12px; overflow:hidden; position:relative; box-shadow:var(--shadow); }
+    .activity-card:hover .activity-card__img { transform:scale(1.06); }
+    .activity-card__img {
+      width:100%; aspect-ratio:4/3; object-fit:cover; display:block;
+      transition:transform 0.6s var(--ease-out);
+    }
+    .activity-card__label {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top, rgba(7,21,41,0.85) 0%, transparent 100%);
+      padding:32px 20px 16px;
+      font-family:var(--font-mono); font-size:10px; letter-spacing:0.16em;
+      text-transform:uppercase; color:var(--white);
+    }
+
+    /* ── Outcomes ── */
+    .outcomes-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:48px; }
+    .outcome-card {
+      padding:36px 28px; border-radius:14px; background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:border-color .28s, background .28s;
+    }
+    .outcome-card:hover { border-color:rgba(224,123,40,0.5); background:rgba(224,123,40,0.05); }
+    .outcome-card__dot { width:10px; height:10px; border-radius:50%; margin-bottom:20px; }
+    .outcome-card h4 { color:var(--white); margin-bottom:8px; font-size:1rem; }
+    .outcome-card p  { color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.65; }
+
+    /* ── Trek details ── */
+    .trek-details { display:grid; grid-template-columns:repeat(4,1fr); background:var(--navy); }
+    .trek-detail  { padding:36px 24px; border-right:1px solid rgba(255,255,255,0.07); text-align:center; }
+    .trek-detail:last-child { border-right:none; }
+    .trek-detail__label { font-family:var(--font-mono); font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:10px; }
+    .trek-detail__value { font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--white); line-height:1.1; }
+    .trek-detail__value span { display:block; font-size:0.78rem; font-family:var(--font-body); font-weight:400; color:var(--teal); margin-top:5px; }
+
+    /* ── Team grid ── */
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .team-card { text-align:center; }
+    .team-card__photo {
+      width:140px; height:140px; border-radius:50%; object-fit:cover;
+      margin:0 auto 18px; border:3px solid var(--grey-light);
+      transition:border-color .28s;
+    }
+    .team-card:hover .team-card__photo { border-color:var(--orange); }
+    .team-card h4 { margin-bottom:4px; font-size:1rem; }
+    .team-card p  { font-size:0.82rem; color:var(--grey-mid); font-family:var(--font-mono); letter-spacing:0.08em; text-transform:uppercase; }
+
+    /* ── Scholarships ── */
+    .scholarship-box {
+      background:var(--off-white); border-radius:14px; padding:52px;
+      border-left:5px solid var(--orange); display:grid;
+      grid-template-columns:1fr auto; gap:36px; align-items:center;
+    }
+
+    @media (max-width:900px) {
+      .activity-grid  { grid-template-columns:1fr 1fr; }
+      .outcomes-grid  { grid-template-columns:1fr 1fr; }
+      .trek-details   { grid-template-columns:1fr 1fr; }
+      .trek-detail:nth-child(2){ border-right:none; }
+      .team-grid      { grid-template-columns:1fr 1fr; }
+      .scholarship-box{ grid-template-columns:1fr; }
+    }
+    @media (max-width:600px) {
+      .activity-grid { grid-template-columns:1fr; }
+      .team-grid     { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body data-page="trek">
+
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/7c75d8fb-1d13-4b06-9c5d-2c6ddb0427d0/Web+Banners_Trek.jpg')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container--wide">
+      <div class="accent-bar"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <span class="eyebrow eyebrow--white">Emerging Leaders</span>
+      <h1>Trek</h1>
+      <p>12-week live-and-learn residential experience for young adults under 23, based in Kigali, Rwanda.</p>
+    </div>
+  </header>
+
+  <!-- Details Strip -->
+  <div class="trek-details">
+    <div class="trek-detail">
+      <div class="trek-detail__label">Duration</div>
+      <div class="trek-detail__value">12 Weeks<span>Fully residential</span></div>
+    </div>
+    <div class="trek-detail">
+      <div class="trek-detail__label">Location</div>
+      <div class="trek-detail__value">Kigali<span>Rwanda, Africa</span></div>
+    </div>
+    <div class="trek-detail">
+      <div class="trek-detail__label">Age Requirement</div>
+      <div class="trek-detail__value">Under 23<span>At program start</span></div>
+    </div>
+    <div class="trek-detail">
+      <div class="trek-detail__label">Program Cost</div>
+      <div class="trek-detail__value">$750<span>Scholarships available</span></div>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="section bg-white">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center">
+        <div class="reveal">
+          <span class="eyebrow">The Program</span>
+          <h2 style="margin:14px 0 24px">Live it. Learn it. Lead it.</h2>
+          <p>Trek is a 12-week residential leadership formation experience based in Kigali, Rwanda. Participants live together in community, study alongside a cohort of peers, and serve in real contexts — all while being deeply formed as leaders.</p>
+          <p style="margin-top:16px">Trek serves young adults from Rwanda, Uganda, DRC, and Burundi who sense a call to lead but need the tools, mentorship, and community to make it real.</p>
+          <div style="display:flex;gap:16px;margin-top:36px;flex-wrap:wrap">
+            <a href="https://smr.to/p106283" target="_blank" rel="noopener" class="btn btn--primary">Apply for Trek</a>
+            <a href="https://www.kurumbuka.org/trek-faq" target="_blank" rel="noopener" class="btn btn--outline-dark">Trek FAQ</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <img src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/7c75d8fb-1d13-4b06-9c5d-2c6ddb0427d0/Web+Banners_Trek.jpg"
+               alt="Trek participants" style="border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-xl)"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity Photos -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow">What You'll Do</span>
+        <h2 style="margin-top:14px">Learning in Every Direction</h2>
+        <p style="color:var(--grey-mid);margin-top:12px">Trek combines classroom learning with adventure, service, mentorship, and hands-on skills.</p>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-card reveal reveal-delay-1">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/e9ef6de7-cc3e-4fbd-a02c-4e8bb009358e/DSC04381-Enhanced-NR-2.jpg"
+               alt="In-Class Learning" loading="lazy"/>
+          <div class="activity-card__label">In-Class Learning</div>
+        </div>
+        <div class="activity-card reveal reveal-delay-2">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/5f8aa6ff-8b24-4d18-8bd9-c4328e31f459/DSC07972-Enhanced-NR.jpg"
+               alt="Adventure Learning" loading="lazy"/>
+          <div class="activity-card__label">Adventure Learning</div>
+        </div>
+        <div class="activity-card reveal reveal-delay-3">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/bc97ea78-9ea0-4de0-ab91-6dba1f47c3fe/A7V03389.jpg"
+               alt="Service Activities" loading="lazy"/>
+          <div class="activity-card__label">Service Activities</div>
+        </div>
+        <div class="activity-card reveal reveal-delay-1">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/07fce1bf-f887-4cb3-b0f9-fc95b8c22c8b/DSC00352-Enhanced-NR.jpg"
+               alt="Field Visits" loading="lazy"/>
+          <div class="activity-card__label">Field Visits</div>
+        </div>
+        <div class="activity-card reveal reveal-delay-2">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/c27e8590-c254-4e42-822f-2c52efd356e7/_K6A4783.JPG"
+               alt="Mentorship" loading="lazy"/>
+          <div class="activity-card__label">Mentorship</div>
+        </div>
+        <div class="activity-card reveal reveal-delay-3">
+          <img class="activity-card__img"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/fe033266-c520-4616-9389-350abdd63fc7/DSC06443-Enhanced-NR.jpg"
+               alt="Skills-Building" loading="lazy"/>
+          <div class="activity-card__label">Skills-Building</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Outcomes -->
+  <section class="section" style="background:var(--navy)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow eyebrow--teal">What Trek Develops</span>
+        <h2 style="color:var(--white);margin-top:14px">Program Outcomes</h2>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome-card reveal reveal-delay-1">
+          <div class="outcome-card__dot" style="background:var(--orange)"></div>
+          <h4>Leadership</h4>
+          <p>A clear understanding of your gifts, your leadership style, and how to lead teams and organizations effectively.</p>
+        </div>
+        <div class="outcome-card reveal reveal-delay-2">
+          <div class="outcome-card__dot" style="background:var(--teal)"></div>
+          <h4>Discipleship</h4>
+          <p>A deeper, more grounded faith — rooted in Scripture and expressed in how you serve and lead those around you.</p>
+        </div>
+        <div class="outcome-card reveal reveal-delay-3">
+          <div class="outcome-card__dot" style="background:var(--red)"></div>
+          <h4>Citizenship</h4>
+          <p>A vision for your role in your community, your nation, and the broader story of what God is doing in Africa.</p>
+        </div>
+        <div class="outcome-card reveal reveal-delay-4">
+          <div class="outcome-card__dot" style="background:var(--orange)"></div>
+          <h4>Stewardship</h4>
+          <p>Practical financial literacy and resource stewardship skills that set a foundation for lifelong generosity and sustainability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trek Team -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:480px;margin:0 auto">
+        <span class="eyebrow">Who You'll Learn From</span>
+        <h2 style="margin-top:14px">The Trek Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal reveal-delay-1">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/e9155ce7-cc42-4ede-9826-115042e2237c/Copy+of+A7V05078.jpg"
+               alt="Denis" loading="lazy"/>
+          <h4>Denis</h4>
+          <p>Trek Director</p>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/4aaf868e-afc0-4601-bca8-51b126f53c63/Copy+of+A7V05224.jpg"
+               alt="Rose" loading="lazy"/>
+          <h4>Rose</h4>
+          <p>Program Coordinator</p>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/35138892-62fd-4036-ad55-f7f3fa4bd057/FOT_0804+%281%29.jpg"
+               alt="Sam" loading="lazy"/>
+          <h4>Sam</h4>
+          <p>Facilitator</p>
+        </div>
+        <div class="team-card reveal reveal-delay-1">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/51023a24-43b6-4a07-8fed-d385a270da98/FOT_0157.jpg"
+               alt="Molly" loading="lazy"/>
+          <h4>Molly</h4>
+          <p>Facilitator</p>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/6ae0688d-ee83-4bc5-8316-7ed912373fb6/581020565_10231430681296544_4781242494265343169_n.jpg"
+               alt="Pr. Margaret" loading="lazy"/>
+          <h4>Pr. Margaret</h4>
+          <p>Chaplain</p>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <img class="team-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/afda4e3d-b2b1-4374-9e12-b08bd5650c37/_K9A9955-3.jpg"
+               alt="Dr. Mike" loading="lazy"/>
+          <h4>Dr. Mike</h4>
+          <p>Academic Lead</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scholarships -->
+  <section class="section bg-off-white">
+    <div class="container reveal">
+      <div class="scholarship-box">
+        <div>
+          <span class="eyebrow">Financial Support</span>
+          <h2 style="margin:14px 0 18px">Scholarships Available</h2>
+          <p>Trek costs $750 USD. We believe financial barriers should not prevent a called leader from participating. Partial and full scholarships are available for applicants who demonstrate need.</p>
+          <p style="margin-top:14px;color:var(--grey-mid);font-size:0.92rem">Scholarship availability is subject to donor funding each cohort. Apply and indicate your need in the application — our team will work with you.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <a href="https://smr.to/p106283" target="_blank" rel="noopener" class="btn btn--primary">Apply Now</a>
+          <a href="https://www.kurumbuka.org/scholarship-surge" target="_blank" rel="noopener" class="btn btn--ghost">
+            Support Scholarships
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

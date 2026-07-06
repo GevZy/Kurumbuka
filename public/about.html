@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Kurumbuka Leadership Solutions</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <style>
+    /* ── Reasons list ── */
+    .reasons { display:flex; flex-direction:column; gap:0; margin-top:40px; counter-reset:reason; }
+    .reason {
+      display:grid; grid-template-columns:56px 1fr; gap:20px; align-items:start;
+      padding:28px 0; border-bottom:1px solid var(--grey-light); counter-increment:reason;
+    }
+    .reason:last-child { border-bottom:none; }
+    .reason__num {
+      font-family:var(--font-display); font-size:2rem; font-weight:900;
+      color:var(--grey-light); line-height:1; padding-top:2px;
+    }
+    .reason h4 { margin-bottom:6px; font-size:1.05rem; }
+    .reason p  { font-size:0.91rem; color:var(--grey-mid); line-height:1.65; }
+
+    /* ── Impact Model ── */
+    .impact-model { background:var(--off-white); padding:80px 0; }
+    .impact-model img { max-width:720px; margin:40px auto 0; display:block; width:100%; }
+
+    /* ── Where leaders serve ── */
+    .leaders-map { background:var(--navy); padding:80px 0; text-align:center; }
+    .leaders-map img { max-width:680px; margin:40px auto 0; display:block; width:100%; }
+
+    /* ── Ezechiel quote ── */
+    .testimonial-split {
+      display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch;
+      min-height:480px; overflow:hidden; border-radius:14px;
+    }
+    .testimonial-split__img  { background-size:cover; background-position:center top; }
+    .testimonial-split__body {
+      background:var(--navy); padding:64px 56px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .testimonial-split__body blockquote {
+      font-family:var(--font-display); font-size:1.35rem; font-style:italic;
+      color:var(--white); line-height:1.55; margin:0 0 28px;
+      border-left:4px solid var(--orange); padding-left:24px;
+    }
+    .testimonial-split__body cite {
+      font-family:var(--font-mono); font-size:10px; letter-spacing:0.16em;
+      text-transform:uppercase; color:var(--teal); font-style:normal; padding-left:24px;
+    }
+
+    /* ── Our Name ── */
+    .name-section {
+      background:var(--navy-deep); padding:80px 0; text-align:center;
+    }
+    .name-section h2 { color:var(--white); margin-bottom:20px; }
+    .name-section p  { color:rgba(255,255,255,0.65); max-width:56ch; margin:0 auto; font-size:1.05rem; line-height:1.78; }
+    .name-section .kinyarwanda {
+      font-family:var(--font-display); font-size:3rem; font-weight:900;
+      color:var(--orange); display:block; margin:20px 0 12px;
+    }
+
+    /* ── What We Believe ── */
+    .beliefs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+    .belief-card {
+      padding:36px 32px; border-radius:14px; background:var(--off-white);
+      border-left:4px solid var(--orange);
+    }
+    .belief-card:nth-child(2) { border-color:var(--teal); }
+    .belief-card:nth-child(3) { border-color:var(--red); }
+    .belief-card h4 { margin-bottom:8px; }
+    .belief-card p  { font-size:0.89rem; color:var(--grey-mid); line-height:1.65; }
+
+    /* ── Get Involved ── */
+    .get-involved-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:56px;
+    }
+    .gi-card {
+      text-align:center; padding:40px 24px 36px;
+      border:1px solid var(--grey-light); border-radius:14px;
+      transition:border-color .28s, box-shadow .28s, transform .28s;
+    }
+    .gi-card:hover { border-color:var(--orange); box-shadow:var(--shadow); transform:translateY(-4px); }
+    .gi-card__icon { width:64px; height:64px; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; }
+    .gi-card h4 { margin-bottom:8px; }
+    .gi-card p  { font-size:0.87rem; color:var(--grey-mid); line-height:1.6; }
+    .gi-card .btn { margin-top:20px; }
+
+    @media (max-width:900px) {
+      .testimonial-split { grid-template-columns:1fr; }
+      .testimonial-split__img { height:280px; }
+      .beliefs-grid { grid-template-columns:1fr; }
+      .get-involved-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .get-involved-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body data-page="about">
+
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/55d78344-2b02-43dc-b700-4d96b83de25b/Web+Banners_Esther+2.jpg')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container--wide">
+      <div class="accent-bar"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <span class="eyebrow eyebrow--white">Who We Are</span>
+      <h1>About Kurumbuka</h1>
+    </div>
+  </header>
+
+  <!-- Why We Invest -->
+  <section class="section bg-white">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start">
+        <div class="reveal">
+          <span class="eyebrow">Our Purpose</span>
+          <h2 style="margin:14px 0 20px">Why we invest in developing and empowering African leaders.</h2>
+          <p>We have experienced what toxic leaders are capable of — violence, corruption, and exploitation. But we have also experienced what visionary Christ-centered leaders can do. Providing communities with good local leaders is the best and most sustainable way to transform the continent of Africa from within.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="reasons">
+            <div class="reason">
+              <div class="reason__num">01</div>
+              <div>
+                <h4>Leaders shape the present and future of a community or society.</h4>
+                <p>Good leaders bring good outcomes. The quality of leadership in an institution, organization, or community directly determines its health and its potential.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason__num">02</div>
+              <div>
+                <h4>The greatest challenge facing Africa is a lack of good leaders.</h4>
+                <p>Despite enormous natural resources, human potential, and economic opportunity, the continent is held back disproportionately by poor governance, corruption, and failed institutions.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason__num">03</div>
+              <div>
+                <h4>African problems need African solutions.</h4>
+                <p>Sustainable transformation comes from within. External programs come and go, but well-equipped local leaders stay and build for generations.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason__num">04</div>
+              <div>
+                <h4>Christ-centered leadership produces lasting transformation.</h4>
+                <p>Leaders shaped by the values of Jesus — servant-heartedness, integrity, compassion, accountability — build institutions that endure and communities that flourish.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason__num">05</div>
+              <div>
+                <h4>Investing in one leader multiplies impact exponentially.</h4>
+                <p>A single transformed leader influences hundreds of lives in their family, organization, and community. The return on investment in leadership development is unlike almost any other intervention.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Model -->
+  <div class="impact-model reveal">
+    <div class="container" style="text-align:center">
+      <span class="eyebrow">How It Works</span>
+      <h2 style="margin-top:14px">The Kurumbuka Impact Model</h2>
+      <img src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/1595962631481-LFWI8T0IGYJH6IKGUCC7/kurumbuka+impact+model+final+colour.png"
+           alt="Kurumbuka Impact Model diagram showing Develop → Connect → Equip cycle" loading="lazy"/>
+    </div>
+  </div>
+
+  <!-- Where Leaders Serve -->
+  <div class="leaders-map">
+    <div class="container reveal" style="text-align:center">
+      <span class="eyebrow eyebrow--teal">Our Reach</span>
+      <h2 style="color:var(--white);margin-top:14px">Where Our Leaders Serve</h2>
+      <p style="color:rgba(255,255,255,0.65);margin:14px auto 0;max-width:50ch">Kurumbuka alumni serve in 19 countries across Sub-Saharan Africa, leading organizations, churches, businesses, and governments.</p>
+      <img src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/fa64d0a8-18d0-4042-899b-f442c8cdfdde/Africa+11+Countries-01.png"
+           alt="Map of Africa showing countries where Kurumbuka leaders serve" loading="lazy"
+           style="max-width:560px;margin:40px auto 0;display:block;width:100%;"/>
+    </div>
+  </div>
+
+  <!-- Ezechiel Testimonial -->
+  <section class="section bg-white">
+    <div class="container reveal">
+      <div class="testimonial-split">
+        <div class="testimonial-split__img"
+             style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/f34bc40c-c8bd-4ad5-9484-ace3ab86ca28/IMG_0325-2.jpg')"></div>
+        <div class="testimonial-split__body">
+          <div class="accent-bar"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+          <span class="eyebrow eyebrow--teal" style="margin-bottom:24px">Alumni Story</span>
+          <blockquote>"Kurumbuka gave me the tools, the community, and the confidence to lead my organization through the most difficult season we have ever faced. I am a different leader because of this program."</blockquote>
+          <cite>Ezechiel — ALI Alumni, Democratic Republic of Congo</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Name -->
+  <div class="name-section reveal">
+    <div class="container">
+      <span class="eyebrow eyebrow--teal">Our Name</span>
+      <span class="kinyarwanda">Kurumbuka</span>
+      <h2>To burst forth.</h2>
+      <p>Kurumbuka is a Kinyarwanda word that describes what happens when an ordinary person discovers they have something extraordinary to give — and steps forward to offer it. It is the moment a leader emerges. That moment is what we exist to catalyse, over and over, across the continent of Africa.</p>
+    </div>
+  </div>
+
+  <!-- History -->
+  <section class="section bg-white">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Our History</span>
+        <h2 style="margin:14px 0 40px">From a vision to a movement.</h2>
+        <div style="position:relative;padding-left:0;margin-left:0">
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:grid;grid-template-columns:80px 1fr;gap:0 32px;padding-bottom:36px;border-left:2px solid var(--grey-light);margin-left:40px;padding-left:0">
+              <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--grey-light);line-height:1;text-align:right;padding-right:24px;margin-left:-80px">2018</div>
+              <div style="border-left:none;padding-left:0;position:relative">
+                <div style="position:absolute;left:-49px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid white"></div>
+                <h4 style="margin-bottom:6px">The Vision Takes Root</h4>
+                <p style="font-size:.9rem;color:var(--grey-mid);line-height:1.65">Founders identify the critical gap in Christ-centred leadership development across Sub-Saharan Africa.</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:80px 1fr;gap:0 32px;padding-bottom:36px;border-left:2px solid var(--grey-light);margin-left:40px;padding-left:0">
+              <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--grey-light);line-height:1;text-align:right;padding-right:24px;margin-left:-80px">2020</div>
+              <div style="position:relative">
+                <div style="position:absolute;left:-49px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid white"></div>
+                <h4 style="margin-bottom:6px">Kurumbuka Founded</h4>
+                <p style="font-size:.9rem;color:var(--grey-mid);line-height:1.65">The organization is incorporated as a Canadian charity and the first ALI cohort launches in Kigali, Rwanda.</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:80px 1fr;gap:0 32px;padding-bottom:36px;border-left:2px solid var(--grey-light);margin-left:40px;padding-left:0">
+              <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--grey-light);line-height:1;text-align:right;padding-right:24px;margin-left:-80px">2022</div>
+              <div style="position:relative">
+                <div style="position:absolute;left:-49px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid white"></div>
+                <h4 style="margin-bottom:6px">Trek Launches</h4>
+                <p style="font-size:.9rem;color:var(--grey-mid);line-height:1.65">The 12-week residential program for emerging young leaders begins its first cohort.</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:80px 1fr;gap:0 32px;margin-left:40px;padding-left:0">
+              <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--grey-light);line-height:1;text-align:right;padding-right:24px;margin-left:-80px">2024</div>
+              <div style="position:relative">
+                <div style="position:absolute;left:-49px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid white"></div>
+                <h4 style="margin-bottom:6px">19 Nations</h4>
+                <p style="font-size:.9rem;color:var(--grey-mid);line-height:1.65">Alumni return home to lead change in 19 countries. The Kurumbuka network spans the continent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2" style="position:sticky;top:120px">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/1683208285311-68M7BZCR71ZUUVT73YOK/Banner+Image_2+Leaders.jpg"
+             alt="Two leaders in conversation"
+             style="border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-xl)"/>
+        <div style="margin-top:28px;padding:28px 32px;background:var(--off-white);border-radius:12px">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:var(--navy);line-height:1.55;margin:0">"I have come that they may have life, and have it to the full."</p>
+          <cite style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-style:normal">John 10:10 — Our Foundation Verse</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Believe -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow">Our Foundation</span>
+        <h2 style="margin-top:14px">What We Believe</h2>
+      </div>
+      <div class="beliefs-grid">
+        <div class="belief-card reveal reveal-delay-1">
+          <h4>The Bible</h4>
+          <p>We believe the Bible is the inspired Word of God and our ultimate authority for faith, life, and leadership practice.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-2">
+          <h4>Jesus Christ</h4>
+          <p>We believe Jesus is the ultimate model of servant leadership — and that following Him is the foundation of transformational leadership.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-3">
+          <h4>The Holy Spirit</h4>
+          <p>We believe the Holy Spirit equips and empowers leaders to serve beyond their natural capacity.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-1">
+          <h4>Human Dignity</h4>
+          <p>We believe every person is made in the image of God and worthy of dignity, respect, and the opportunity to flourish.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-2">
+          <h4>The Church</h4>
+          <p>We believe the local church is central to God's plan for community transformation and is our primary partner in this work.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-3">
+          <h4>Reconciliation</h4>
+          <p>We believe that Christ-centered leaders are agents of reconciliation — bringing healing to divided communities and nations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:540px;margin:0 auto">
+        <span class="eyebrow">Join the Mission</span>
+        <h2 style="margin-top:14px">GET INVOLVED</h2>
+        <p style="color:var(--grey-mid);margin-top:12px">There are many ways to be part of what God is doing through Kurumbuka.</p>
+      </div>
+      <div class="get-involved-grid">
+        <div class="gi-card reveal reveal-delay-1">
+          <div class="gi-card__icon" style="background:rgba(224,123,40,0.1)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <path d="M15 5c-1.5 3.5-6 5-6 9a6 6 0 0012 0c0-4-4.5-5.5-6-9z" stroke="#e07b28" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M15 20v5M12 25h6" stroke="#e07b28" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Pray</h4>
+          <p>Join our prayer network and receive specific prayer points each month.</p>
+          <a href="https://www.kurumbuka.org/pray" target="_blank" rel="noopener" class="btn btn--ghost">Pray With Us
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="gi-card reveal reveal-delay-2">
+          <div class="gi-card__icon" style="background:rgba(45,181,160,0.1)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="22" height="22" rx="4" stroke="#2db5a0" stroke-width="1.8"/>
+              <path d="M4 12h22" stroke="#2db5a0" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M10 4v8M20 4v8" stroke="#2db5a0" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M10 18h10M10 22h6" stroke="#2db5a0" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Partner</h4>
+          <p>Connect your church or organization with the Kurumbuka mission.</p>
+          <a href="get-involved.html" class="btn btn--ghost">Get Involved
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="gi-card reveal reveal-delay-3">
+          <div class="gi-card__icon" style="background:rgba(200,37,59,0.08)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <circle cx="15" cy="15" r="11" stroke="#c8253b" stroke-width="1.8"/>
+              <path d="M15 9v6l4 2" stroke="#c8253b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Invest</h4>
+          <p>Give to empower African leaders through our programs and scholarships.</p>
+          <a href="https://kurumbuka.kindful.com" target="_blank" rel="noopener" class="btn btn--ghost">Donate Now
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="gi-card reveal reveal-delay-4">
+          <div class="gi-card__icon" style="background:rgba(224,123,40,0.1)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <circle cx="15" cy="10" r="5" stroke="#e07b28" stroke-width="1.8"/>
+              <path d="M5 26c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="#e07b28" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Apply</h4>
+          <p>Are you ready to take the next step in your leadership journey?</p>
+          <a href="ali.html" class="btn btn--ghost">Our Programs
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

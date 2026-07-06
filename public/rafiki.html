@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rafiki Coalition — Kurumbuka</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <style>
+    /* ── Alumni quotes ── */
+    .alumni-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .alumni-card { border-radius:14px; overflow:hidden; box-shadow:var(--shadow); position:relative; }
+    .alumni-card__photo { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
+    .alumni-card__overlay {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top, rgba(7,21,41,0.95) 0%, rgba(7,21,41,0.3) 70%, transparent 100%);
+      padding:48px 28px 28px;
+    }
+    .alumni-card__quote { font-family:var(--font-display); font-style:italic; font-size:1.05rem; color:var(--white); line-height:1.5; margin-bottom:14px; }
+    .alumni-card__name  { font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal); }
+
+    /* ── Impact stories ── */
+    .impact-story { display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:32px; }
+    .impact-story:nth-child(even) .impact-story__img { order:2; }
+    .impact-story:nth-child(even) .impact-story__body{ order:1; }
+    .impact-story__img  { background-size:cover; background-position:center top; min-height:340px; }
+    .impact-story__body { background:var(--white); padding:56px 48px; display:flex; flex-direction:column; justify-content:center; }
+    .impact-story__body .eyebrow { margin-bottom:10px; }
+    .impact-story__body h3 { margin-bottom:14px; }
+    .impact-story__body p  { font-size:0.94rem; color:var(--grey-mid); line-height:1.72; }
+
+    /* ── Benefits icons ── */
+    .benefits-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin-top:52px; text-align:center; }
+    .benefit-item__icon {
+      width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center;
+      margin:0 auto 16px; transition:background .28s, border-color .28s;
+    }
+    .benefit-item:hover .benefit-item__icon { background:rgba(224,123,40,0.12); border-color:var(--orange); }
+    .benefit-item h4 { color:var(--white); font-size:0.95rem; margin-bottom:6px; }
+    .benefit-item p  { color:rgba(255,255,255,0.45); font-size:0.83rem; line-height:1.6; }
+
+    /* ── Donor testimonials ── */
+    .donor-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .donor-card {
+      padding:40px 36px; border-radius:14px; background:var(--white);
+      border:1px solid var(--grey-light);
+      transition:border-color .28s, box-shadow .28s;
+    }
+    .donor-card:hover { border-color:var(--orange); box-shadow:var(--shadow); }
+    .donor-card__photo {
+      width:64px; height:64px; border-radius:50%; object-fit:cover;
+      margin-bottom:20px; filter:grayscale(30%);
+    }
+    .donor-card__quote {
+      font-family:var(--font-display); font-style:italic; font-size:1rem;
+      color:var(--navy); line-height:1.55; margin-bottom:20px;
+    }
+    .donor-card__name {
+      font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em;
+      text-transform:uppercase; color:var(--orange);
+    }
+
+    @media (max-width:900px) {
+      .alumni-grid   { grid-template-columns:1fr; }
+      .impact-story  { grid-template-columns:1fr; }
+      .impact-story:nth-child(even) .impact-story__img,
+      .impact-story:nth-child(even) .impact-story__body { order:unset; }
+      .benefits-grid { grid-template-columns:1fr 1fr; }
+      .donor-grid    { grid-template-columns:1fr; }
+    }
+    @media (max-width:600px) {
+      .benefits-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body data-page="rafiki">
+
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/0cdc9422-c02e-4418-a2c0-c9a9b99bdd99/Kurumbuka_56edited.jpg')"></div>
+    <div class="page-hero__overlay" style="background:linear-gradient(to top, rgba(7,21,41,0.94) 0%, rgba(7,21,41,0.55) 55%, rgba(45,181,160,0.1) 100%)"></div>
+    <div class="page-hero__content container--wide">
+      <div class="accent-bar"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <span class="eyebrow eyebrow--teal">Monthly Giving</span>
+      <h1>The Rafiki<br>Coalition</h1>
+      <p>"Rafiki" means <em>friend</em> in Swahili. Become part of an international community of friends empowering African leaders every single month.</p>
+    </div>
+  </header>
+
+  <!-- What is Rafiki -->
+  <section class="section bg-white">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center">
+        <div class="reveal">
+          <span class="eyebrow">The Coalition</span>
+          <h2 style="margin:14px 0 24px">What is the Rafiki Coalition?</h2>
+          <p>The Rafiki Coalition is Kurumbuka's community of monthly supporters — individuals and families around the world who give a regular gift each month to empower African leaders through our programs.</p>
+          <p style="margin-top:16px">Monthly giving is the most impactful thing an individual donor can do. It allows us to plan ahead, hire the best faculty, offer scholarships, and ensure no leader drops out due to financial hardship.</p>
+          <a href="https://kurumbuka.kindful.com" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:36px">Give Monthly</a>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="quote-block">
+            <p>"Your monthly gift is the seed of a leader's transformation — and that leader's transformation is the seed of their community's transformation."</p>
+            <cite>— Kurumbuka Team</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni Voices -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow">Leader Voices</span>
+        <h2 style="margin-top:14px">Your giving changes lives.</h2>
+        <p style="color:var(--grey-mid);margin-top:12px">Meet three leaders whose journeys have been shaped by the generosity of Rafiki friends.</p>
+      </div>
+      <div class="alumni-grid">
+        <div class="alumni-card reveal reveal-delay-1">
+          <img class="alumni-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/8ea4e442-1fee-41f9-a6a3-990d5f01eb4e/DSC06354.jpg"
+               alt="Florence" loading="lazy"/>
+          <div class="alumni-card__overlay">
+            <p class="alumni-card__quote">"Kurumbuka didn't just train me — it changed the way I see myself as a leader and the way I see the people I serve."</p>
+            <span class="alumni-card__name">Florence — Trek Alumni</span>
+          </div>
+        </div>
+        <div class="alumni-card reveal reveal-delay-2">
+          <img class="alumni-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/151a504c-4dc8-4310-a862-8dd0f2db5a23/DSC_8227.jpg"
+               alt="Fred" loading="lazy"/>
+          <div class="alumni-card__overlay">
+            <p class="alumni-card__quote">"The community I found at Trek is unlike anything I have experienced. These are my people — for life."</p>
+            <span class="alumni-card__name">Fred — Trek Alumni</span>
+          </div>
+        </div>
+        <div class="alumni-card reveal reveal-delay-3">
+          <img class="alumni-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/f2cdaef1-6285-4f01-8f22-71de9a6e5b06/Melissa%2C+Rwanda.jpg"
+               alt="Melissa" loading="lazy"/>
+          <div class="alumni-card__overlay">
+            <p class="alumni-card__quote">"Coming to Rwanda for Trek was the best decision I ever made. I came looking for skills and left with a calling."</p>
+            <span class="alumni-card__name">Melissa — Trek Alumni</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Monthly Gift In Action -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow">Real Impact</span>
+        <h2 style="margin-top:14px">Your Monthly Gift in Action</h2>
+        <p style="color:var(--grey-mid);margin-top:12px">Every month, your gift is at work in the lives of real leaders across Africa.</p>
+      </div>
+      <div style="margin-top:56px">
+        <div class="impact-story reveal">
+          <div class="impact-story__img" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/ee29afde-6cc8-4e37-8fce-ab02fd782bb1/FOT_1036_2.jpg')"></div>
+          <div class="impact-story__body">
+            <span class="eyebrow">Trek Alumni</span>
+            <h3>Stevens</h3>
+            <p>Stevens completed Trek and returned home to launch a youth leadership initiative in his community. Today he mentors 40 young people each week — multiplying the impact of every gift that made his Trek experience possible.</p>
+          </div>
+        </div>
+        <div class="impact-story reveal">
+          <div class="impact-story__img" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/ca6a9da4-69e8-4fbf-b670-1bc3060097db/_K9A1060-5.jpg')"></div>
+          <div class="impact-story__body">
+            <span class="eyebrow">ALI Alumni</span>
+            <h3>Mercy</h3>
+            <p>Mercy leads a healthcare NGO serving thousands of patients. After ALI, she restructured her organization's governance and doubled its reach — directly applying what she learned in the program.</p>
+          </div>
+        </div>
+        <div class="impact-story reveal">
+          <div class="impact-story__img" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/621a354f-3bfd-40a4-89d6-2c45761e5b35/_K6A4286.jpg')"></div>
+          <div class="impact-story__body">
+            <span class="eyebrow">ALI Alumni</span>
+            <h3>Diane</h3>
+            <p>Diane runs a community development organization in rural Rwanda. Her ALI scholarship was made possible entirely by monthly donors in the Rafiki Coalition. She now mentors the next cohort of ALI leaders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When You Join Rafiki You Get -->
+  <section class="section" style="background:var(--navy)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow eyebrow--teal">Member Benefits</span>
+        <h2 style="color:var(--white);margin-top:14px">When you join Rafiki, you get…</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item reveal reveal-delay-1">
+          <div class="benefit-item__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <path d="M4 6h20v16a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" stroke="#e07b28" stroke-width="1.6"/>
+              <path d="M4 6l10 9 10-9" stroke="#e07b28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Newsletter</h4>
+          <p>Monthly stories and updates from our programs.</p>
+        </div>
+        <div class="benefit-item reveal reveal-delay-2">
+          <div class="benefit-item__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <path d="M14 4C8.5 4 4 8.5 4 14c0 3.5 4 10 10 10s10-6.5 10-10c0-5.5-4.5-10-10-10z" stroke="#2db5a0" stroke-width="1.6"/>
+              <circle cx="14" cy="14" r="3" stroke="#2db5a0" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h4>Vision Trips</h4>
+          <p>Priority access to our bi-annual trips to Kigali.</p>
+        </div>
+        <div class="benefit-item reveal reveal-delay-3">
+          <div class="benefit-item__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <circle cx="14" cy="10" r="5" stroke="#c8253b" stroke-width="1.6"/>
+              <path d="M5 25c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="#c8253b" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Leader Updates</h4>
+          <p>Direct updates from leaders your gift supports.</p>
+        </div>
+        <div class="benefit-item reveal reveal-delay-4">
+          <div class="benefit-item__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <circle cx="9"  cy="9"  r="4" stroke="#e07b28" stroke-width="1.5"/>
+              <circle cx="19" cy="9"  r="4" stroke="#e07b28" stroke-width="1.5"/>
+              <circle cx="14" cy="19" r="4" stroke="#e07b28" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h4>Community Events</h4>
+          <p>Invitations to Rafiki gatherings and virtual events.</p>
+        </div>
+        <div class="benefit-item reveal reveal-delay-4">
+          <div class="benefit-item__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <rect x="4" y="5" width="20" height="18" rx="2.5" stroke="#teal" stroke-width="1.6" stroke="rgba(45,181,160,1)"/>
+              <path d="M9 11h10M9 15h7" stroke="#2db5a0" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Leadership Material</h4>
+          <p>Curated leadership resources from our curriculum.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:56px">
+        <a href="https://kurumbuka.kindful.com" target="_blank" rel="noopener" class="btn btn--primary" style="padding:18px 52px;font-size:12px">Become a Rafiki Friend</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Give — Donor Testimonials -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+        <span class="eyebrow">Donor Stories</span>
+        <h2 style="margin-top:14px">Why We Give</h2>
+      </div>
+      <div class="donor-grid">
+        <div class="donor-card reveal reveal-delay-1">
+          <img class="donor-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/8da956d7-8339-4fa7-bb94-4fb60fb08ae4/IMG_8690.jpg"
+               alt="Chris and Diandra" loading="lazy"/>
+          <p class="donor-card__quote">"We give to Kurumbuka because we believe the best investment we can make in Africa is in the people who lead it. These leaders are multipliers."</p>
+          <span class="donor-card__name">Chris &amp; Diandra — Monthly Donors</span>
+        </div>
+        <div class="donor-card reveal reveal-delay-2">
+          <img class="donor-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/1616166097062-XARPLBHCT1JR469GI0L3/Chad.jpg"
+               alt="Chad" loading="lazy"/>
+          <p class="donor-card__quote">"I have watched Kurumbuka grow from an idea into a movement. Giving monthly feels like being part of something historic."</p>
+          <span class="donor-card__name">Chad — Monthly Donor</span>
+        </div>
+        <div class="donor-card reveal reveal-delay-3">
+          <img class="donor-card__photo"
+               src="https://images.squarespace-cdn.com/content/v1/5e3934613e28b40acfaed26c/1616166131668-66ROSH8O85J9NBGALXZG/sarah.jpg"
+               alt="Sarah" loading="lazy"/>
+          <p class="donor-card__quote">"Joining the Rafiki Coalition is the easiest giving decision I've ever made. The transparency and the stories make it feel so real."</p>
+          <span class="donor-card__name">Sarah — Monthly Donor</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USA Giving -->
+  <section class="section bg-white">
+    <div class="container reveal" style="text-align:center;max-width:620px;margin:0 auto">
+      <span class="eyebrow">US Donors</span>
+      <h2 style="margin:14px auto">Giving from the United States?</h2>
+      <p style="color:var(--grey-mid);margin:0 auto 36px">US donors can give through our US partner organization for full tax deductibility.</p>
+      <a href="https://www.kurumbuka.org/us-donate" target="_blank" rel="noopener" class="btn btn--primary">US Giving Options</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

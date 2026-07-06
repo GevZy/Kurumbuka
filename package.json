@@ -1,0 +1,14 @@
+{
+  "name": "kurumbuka-leadership",
+  "version": "1.0.0",
+  "description": "Kurumbuka Leadership Solutions Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "docx": "^9.7.1",
+    "express": "^4.22.2"
+  }
+}
